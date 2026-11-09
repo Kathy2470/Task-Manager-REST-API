@@ -1,4 +1,5 @@
 const express = require("express");
+const taskRoutes = require("./routes/taskRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -13,6 +14,8 @@ app.get("/api/health", (req, res) => {
     message: "Task Manager API is running",
   });
 });
+
+app.use("/api/tasks", taskRoutes);
 
 // Start the server
 app.listen(PORT, () => {
